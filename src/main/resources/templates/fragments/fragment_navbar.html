@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/styleMoulinNavbar.css">
+  <title>Fragment_nabvar</title>
+</head>
+
+<body>
+<header th:fragment ="fragment_navbar" class="navbar">
+  <nav>
+    <ul class="nav-list">
+      <li><a href="/">Accueil</a></li>
+      <li><a href="/territoire">Territoire</a></li>
+      <li><a href="/programmation">Programmation</a></li>
+      <li><a href="/connexion">Se Connecter</a></li>
+    </ul>
+  </nav>
+</header>
+</body>
+</html>
