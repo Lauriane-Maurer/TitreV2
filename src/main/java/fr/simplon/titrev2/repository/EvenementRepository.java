@@ -1,4 +1,7 @@
-package fr.simplon.titrev2.dao;
+package fr.simplon.titrev2.repository;
 
-public interface EvenementRepository {
+import fr.simplon.titrev2.model.Evenement;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface EvenementRepository extends JpaRepository<Evenement, Long> {
 }

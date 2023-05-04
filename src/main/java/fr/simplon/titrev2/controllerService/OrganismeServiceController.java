@@ -9,13 +9,13 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @RestController
-public class OrganismeController {
+public class OrganismeServiceController {
 
     private OrganismeRepository repo;
 
 
     @Autowired
-    public OrganismeController(OrganismeRepository fr) {
+    public OrganismeServiceController(OrganismeRepository fr) {
         this.repo = fr;
 
         //this.repo.save(new Organisme("Gaec Gwel Ar Mor", "producteur","7 Bourg", "Lampaul-Ploudalmezeau", 29830, "www.gwelarmor.fr", 48.56241900228485, -4.609485545551342));
@@ -77,12 +77,10 @@ public class OrganismeController {
                 });
     }
 
-
     @DeleteMapping("/rest/organismes/{id}")
     public void deleteOrganization(@PathVariable Long id) {
         repo.deleteById(id);
     }
-
 
 
 }

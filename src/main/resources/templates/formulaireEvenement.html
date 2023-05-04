@@ -17,36 +17,40 @@
 <main>
   <form class="creation" th:object="${evenement}" method="post" >
 
+    <label>Type d'évènement :</label>
+    <input type="text" th:field="*{type}" required/>
+    <br>
+
     <label>Titre de l'évènement :</label>
-    <input type="text" th:field="*{evenement.titre}" required/>
+    <input type="text" th:field="*{titre}" required/>
     <br>
 
     <label>Description de l'évènement :</label>
-    <input type="text" th:field="*{evenement.description}" required/>
+    <input type="text" th:field="*{description}" required/>
     <br>
 
     <label>Date et heure de début de l'évènement :</label>
-    <input type="datetime-local" th:field="*{evenement.dateDebut}" required/>
+    <input type="datetime-local" th:field="*{dateDebut}" required/>
     <br>
 
     <label>Date et heure de fin de l'évènement :</label>
-    <input type="datetime-local" th:field="*{evenement.dateFin}" required/>
+    <input type="datetime-local" th:field="*{dateFin}" required/>
     <br>
 
     <label>Nombre de places ouvertes :</label>
-    <input type="number" th:field="*{evenement.places_totales}" />
+    <input type="number" th:field="*{places_totales}" />
     <br>
 
     <label>Tarif :</label>
-    <input type="number" th:field="*{evenement.tarif}" />
+    <input type="number" th:field="*{tarif}" />
     <br>
 
     <label>Intervenant.e.s :</label>
-    <input type="text" th:field="*{evenement.intervenant}" />
+    <input type="text" th:field="*{intervenant}" />
     <br>
 
     <label for="photo">Choisir une photo :</label>
-    <select id="photo" name="photo">
+    <select id="photo" name="photo" th:field="*{photo}">
       <option value="/photos/beachyoga.PNG">Beach Yoga</option>
       <option value="/photos/cuisine1.jpg">Cuisine 1</option>
       <option value="/photos/dome.PNG">Dome</option>
@@ -54,7 +58,7 @@
       <option value="/photos/marchedulittorale.PNG">marchedulittorale</option>
       <option value="/photos/moulindenuit.PNG">moulindenuit</option>
       <option value="/photos/Photostage1.PNG">Photostage1</option>
-      <option value="/photos/Photostage1.PNG">schemamoulin</option>
+      <option value="/photos/schemamoulin.PNG">schemamoulin</option>
     </select>
 
 

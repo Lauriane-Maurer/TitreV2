@@ -1,2 +1,4 @@
-package fr.simplon.titrev2.dto;public class UserForm {
+package fr.simplon.titrev2.dto;
+
+public class UserForm {
 }
