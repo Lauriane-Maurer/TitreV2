@@ -3,28 +3,28 @@
        xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
 
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/styleMoulin.css">
+        <link rel="stylesheet" href="/styleMoulinLogin.css">
+        <link rel="stylesheet" href="/styleMoulinNavbar.css">
         <title>Identification</title>
     </head>
     <body>
-        <main>
-            <h1>Se connecter</h1>
+    <div th:replace="~{fragments/fragment_navbar :: fragment_navbar}" ></div>
+        <main class="login-container">
+            <h1 class="login-titre">Se Connecter</h1>
             <form method="post" th:action="@{/login}">
                 <div class="alert alert-danger" role="alert" th:if="${param.error}">Mot de passe ou identifiant invalides.</div>
                 <div class="alert alert-success" role="alert" th:if="${param.logout}">Vous êtes bien déconnecté.</div>
-                <div class="form-group">
-                    <label for="username">Identifiant:</label>
-                    <input type="text" id="username" name="username" placeholder="Username" required="" autofocus="">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="password">Password:</label>
-                    <input class="form-control" type="password" id="password" name="password" placeholder="Password" required=""/>
-                </div>
-                <div class="form-group">
-                    <button class="connexion" type="submit" />Valider</button>
+                <div class="login-form">
+                    <input class="login-item" type="text" id="username" name="username" placeholder="Username" required="" autofocus="">
+                    <input class="login-item" type="password" id="password" name="password" placeholder="Password" required=""/>
+                    <button class="login-button" type="submit" />Valider</button>
                 </div>
                 <div>
-                    <p>Si vous n'avez pas encore, vous pouvez créer un compte en cliquant ici!</p>
-                    <button class="connexion"><a href="/inscription">S'inscrire</a></button>
+                    <p>Pas encore membre? C'est par ici !</p>
+                    <button class="login-registration-button" ><a href="/inscription">S'inscrire</a></button>
                 </div>
             </form>
         </main>
