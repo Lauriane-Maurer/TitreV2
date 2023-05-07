@@ -11,38 +11,47 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
-
 import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
 public class SpringSecurityConfig {
 
+    private DataSource dataSource;
+
     @Autowired
-    private javax.sql.DataSource dataSource;
-
-
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception
+    public SpringSecurityConfig(DataSource pDataSource)
     {
-        return http
-                .csrf().disable()
-                .authorizeHttpRequests()
-                .requestMatchers(HttpMethod.GET, "/**").permitAll()
-                .requestMatchers(HttpMethod.POST, "/**").permitAll()
-                .requestMatchers(HttpMethod.PUT, "/**").permitAll()
-                .requestMatchers(HttpMethod.DELETE, "/**").permitAll()
-                .and().build();
+        dataSource = pDataSource;
     }
 
     @Bean
     public UserDetailsManager users(DataSource dataSource)
-    { return new JdbcUserDetailsManager(dataSource); }
-
+    {
+        return new JdbcUserDetailsManager(dataSource);
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder()
-    { return PasswordEncoderFactories.createDelegatingPasswordEncoder(); }
+    {
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    }
 
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception
+    {
+        return http.csrf().disable() // Pour l'instant on désactive la protection CSRF
+                .authorizeHttpRequests()
+                .requestMatchers(HttpMethod.GET, "/**").permitAll()
+                .requestMatchers(HttpMethod.PUT, "/**").authenticated()
+                .requestMatchers(HttpMethod.DELETE, "/**").hasRole("ADMIN")
+                .requestMatchers("/admin/**").hasRole("ADMIN") //
+                .anyRequest().permitAll()//
+                .and()
+                .formLogin()
+                .loginPage("/login").permitAll()
+                .and().passwordManagement(management -> management.changePasswordPage("/change-password"))
+                .build();
+    }
 
 }

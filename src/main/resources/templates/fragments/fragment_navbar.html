@@ -1,23 +1,33 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/styleMoulinNavbar.css">
-  <title>Fragment_nabvar</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styleMoulinNavbar.css">
+    <title>Fragment_nabvar</title>
 </head>
 
 <body>
-<header th:fragment ="fragment_navbar" class="navbar">
-  <nav>
-    <ul class="nav-list">
-      <li><a href="/">Accueil</a></li>
-      <li><a href="/territoire">Territoire</a></li>
-      <li><a href="/programmation">Programmation</a></li>
-      <li><a href="/connexion">Se Connecter</a></li>
-    </ul>
-  </nav>
+<header th:fragment="fragment_navbar" class="navbar">
+    <nav>
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/territoire">Territoire</a></li>
+            <li><a href="/programmation">Programmation</a></li>
+            <li sec:authorize="!isAuthenticated()">
+                <a th:href="@{/login}">Se connecter</a>
+            </li>
+            <li>
+                <span sec:authorize="isAuthenticated()">
+                Bienvenue <span sec:authentication="name"></span> !
+                &nbsp;|&nbsp;
+                    <a th:href="@{/deconnexion}">Se déconnecter</a>
+                </span>
+            </li>
+        </ul>
+    </nav>
 </header>
 </body>
 </html>

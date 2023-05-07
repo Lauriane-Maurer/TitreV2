@@ -17,7 +17,7 @@ public class EvenementClientController {
         @GetMapping("/programmation")
         public String getAllEvents(Model model){
             this.restTemplate = new RestTemplate();
-            String url ="http://localhost:8080/rest/evenements";
+            String url ="http://localhost:8081/rest/evenements";
             ResponseEntity<List<Evenement>> response=restTemplate.exchange(
                     url,
                     HttpMethod.GET,
@@ -35,14 +35,14 @@ public class EvenementClientController {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
             HttpEntity<String> entity = new HttpEntity<String>(headers);
-            ResponseEntity<List<Evenement>> response = restTemplate.exchange("http://localhost:8080/rest/api/evenements", HttpMethod.GET, entity, new ParameterizedTypeReference<List<Evenement>>() {});
+            ResponseEntity<List<Evenement>> response = restTemplate.exchange("http://localhost:8081/rest/api/evenements", HttpMethod.GET, entity, new ParameterizedTypeReference<List<Evenement>>() {});
             return response.getBody();
         }
 
         @GetMapping ("/evenements/{id}")
         public String getEvent(Model model, @PathVariable Long id){
             this.restTemplate = new RestTemplate();
-            String url="http://localhost:8080/rest/evenements/{id}";
+            String url="http://localhost:8081/rest/evenements/{id}";
             ResponseEntity<Evenement> response =restTemplate.getForEntity(url, Evenement.class, id);
             Evenement evenement = response.getBody();
             model.addAttribute("evenement", evenement);
@@ -59,7 +59,7 @@ public class EvenementClientController {
         @PostMapping("/creationEvenement")
         public String addEvent(@ModelAttribute("evenement") Evenement evenement){
             this.restTemplate = new RestTemplate();
-            String url ="http://localhost:8080/rest/evenements";
+            String url ="http://localhost:8081/rest/evenements";
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
             HttpEntity<Evenement> request = new HttpEntity<>(evenement, headers);

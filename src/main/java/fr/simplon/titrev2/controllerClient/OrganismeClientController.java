@@ -19,7 +19,7 @@ public class OrganismeClientController {
         @GetMapping("/territoire")
         public String territoireclient(Model model){
             this.restTemplate = new RestTemplate();
-            String url ="http://localhost:8080/rest/organismes";
+            String url ="http://localhost:8081/rest/organismes";
             ResponseEntity<List<Organisme>> response=restTemplate.exchange(
                     url,
                     HttpMethod.GET,
@@ -39,7 +39,7 @@ public class OrganismeClientController {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
             HttpEntity<String> entity = new HttpEntity<String>(headers);
-            ResponseEntity<List<Organisme>> response = restTemplate.exchange("http://localhost:8080/rest/api/organismes", HttpMethod.GET, entity, new ParameterizedTypeReference<List<Organisme>>() {});
+            ResponseEntity<List<Organisme>> response = restTemplate.exchange("http://localhost:8081/rest/api/organismes", HttpMethod.GET, entity, new ParameterizedTypeReference<List<Organisme>>() {});
             return response.getBody();
         }
 }
