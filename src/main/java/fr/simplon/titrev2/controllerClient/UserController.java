@@ -86,7 +86,7 @@ public class UserController {
         UserDetails userDetails = new User(user.getLogin(), encodedPassword, roles);
         // Create the account in database with all its roles
         userDetailsManager.createUser(userDetails);
-        return "redirect:/";
+        return "redirect:/login";
     }
 
 
