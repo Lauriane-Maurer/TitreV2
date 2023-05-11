@@ -6,4 +6,5 @@ VALUES ('admin',
 
 INSERT INTO authorities (username,authority)
 VALUES ( 'admin',
-        'ROLE_ADMIN' );
+         'ROLE_ADMIN' );
+

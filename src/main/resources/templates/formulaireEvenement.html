@@ -17,25 +17,30 @@
 <main>
   <form class="creation" th:object="${evenement}" method="post" >
 
-    <label>Type d'évènement :</label>
-    <input type="text" th:field="*{type}" required/>
-    <br>
+    <div class="form-item">
+      <label>Type d'évènement :</label>
+      <input type="text" th:field="*{type}" required/>
+    </div>
 
-    <label>Titre de l'évènement :</label>
-    <input type="text" th:field="*{titre}" required/>
-    <br>
+    <div class="form-item">
+      <label>Titre de l'évènement :</label>
+      <input type="text" th:field="*{titre}" required/>
+    </div>
 
-    <label>Description de l'évènement :</label>
-    <input type="text" th:field="*{description}" required/>
-    <br>
+    <div class="form-item">
+      <label>Description de l'évènement :</label>
+      <input type="text" th:field="*{description}" required/>
+    </div>
 
-    <label>Date et heure de début de l'évènement :</label>
-    <input type="datetime-local" th:field="*{dateDebut}" required/>
-    <br>
+    <div class="form-item">
+      <label>Date et heure de début de l'évènement :</label>
+      <input type="datetime-local" th:field="*{dateDebut}" required/>
+    </div>
 
-    <label>Date et heure de fin de l'évènement :</label>
-    <input type="datetime-local" th:field="*{dateFin}" required/>
-    <br>
+    <div class="form-item">
+      <label>Date et heure de fin de l'évènement :</label>
+      <input type="datetime-local" th:field="*{dateFin}" required/>
+    </div>
 
     <label>Nombre de places ouvertes :</label>
     <input type="number" th:field="*{places_totales}" />
@@ -73,7 +78,6 @@
 
     <input type="hidden" th:field="*{id}" />
     <input type="hidden" th:field="*{places_restantes}" />
-
 
     <input class="bouton-creation" type="submit" value="Enregistrer"/>
   </form>

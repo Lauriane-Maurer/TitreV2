@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="evenements")
@@ -26,10 +28,12 @@ public class Evenement {
     private String intervenant;
     private String photo;
 
+
+
     public Evenement() {
     }
 
-    public Evenement(String type, String titre, @NotNull String description, LocalDateTime dateDebut, LocalDateTime dateFin, int places_totales, int places_restantes, Double tarif, String intervenant, String photo) {
+    public Evenement(String type, String titre, @NotNull String description, LocalDateTime dateDebut, LocalDateTime dateFin, int places_totales, int places_restantes, Double tarif, String intervenant, String photo, List<Participant> participants) {
         this.type = type;
         this.titre = titre;
         this.description = description;
@@ -40,6 +44,7 @@ public class Evenement {
         this.tarif = tarif;
         this.intervenant = intervenant;
         this.photo = photo;
+
     }
 
     public Long getId() {
@@ -129,4 +134,6 @@ public class Evenement {
     public void setPhoto(String photo) {
         this.photo = photo;
     }
+
+
 }

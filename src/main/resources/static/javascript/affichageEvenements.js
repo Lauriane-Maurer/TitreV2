@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <p class="card-text"><small class="text-muted">${evenement.dateDebut} - ${evenement.dateFin}</small></p>
                         </div>
                         <div class="card-footer">
-                            <a href="#" class="btn-share" onclick="shareEvenement(${evenement.id})">Partager</a>
+                            <a href="/evenements/${evenement.id}/participation">S'inscrire</a>
                         </div>
                     </div>
                 `;

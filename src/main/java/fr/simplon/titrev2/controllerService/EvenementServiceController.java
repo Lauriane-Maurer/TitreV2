@@ -84,6 +84,9 @@ public class EvenementServiceController {
     public void deleteEvent(@PathVariable Long id) {
         repo.deleteById(id);
     }
+
+
+
 }
 
 
