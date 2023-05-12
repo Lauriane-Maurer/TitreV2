@@ -42,7 +42,7 @@ public class ParticipantServiceController {
         return repo.save(newParticipant).getEvenement();
     }
 
-    @PutMapping("/rest/participants/{id}")
+    @PostMapping("/rest/participants/{id}")
     public Participant updateParticipant(@RequestBody Participant newParticipant, @PathVariable Long id) {
         return repo.findById(id)
                 .map(participant -> {
@@ -62,7 +62,7 @@ public class ParticipantServiceController {
 
 
     @DeleteMapping("/rest/participants/{id}")
-    public void deleteOrganization(@PathVariable Long id) {
+    public void deleteParticipant(@PathVariable Long id) {
         repo.deleteById(id);
     }
 

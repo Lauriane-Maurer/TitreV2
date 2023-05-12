@@ -58,7 +58,7 @@ public class EvenementServiceController {
     }
 
 
-    @PutMapping("/rest/evenements/{id}")
+    @PostMapping("/rest/UpdateEvent/{id}")
     public Evenement updateEvent(@RequestBody Evenement newEvent, @PathVariable Long id) {
         return repo.findById(id)
                 .map(evenement -> {
@@ -79,6 +79,7 @@ public class EvenementServiceController {
                     return repo.save(newEvent);
                 });
     }
+
 
     @DeleteMapping("/rest/evenements/{id}")
     public void deleteEvent(@PathVariable Long id) {

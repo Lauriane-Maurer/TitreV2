@@ -14,16 +14,20 @@ public class Evenement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotNull
     private String type;
+    @NotNull
     private String titre;
     @NotNull
     @Column(length = 1000)
     private String description;
+    @NotNull
     private LocalDateTime dateDebut;
+    @NotNull
     private LocalDateTime dateFin;
 
-    private int places_totales;
-    private int places_restantes;
+    private Integer places_totales;
+    private Integer places_restantes;
     private Double tarif;
     private String intervenant;
     private String photo;
@@ -33,7 +37,7 @@ public class Evenement {
     public Evenement() {
     }
 
-    public Evenement(String type, String titre, @NotNull String description, LocalDateTime dateDebut, LocalDateTime dateFin, int places_totales, int places_restantes, Double tarif, String intervenant, String photo, List<Participant> participants) {
+    public Evenement(@NotNull String type, @NotNull String titre, @NotNull String description, @NotNull LocalDateTime dateDebut, @NotNull LocalDateTime dateFin, Integer places_totales, Integer places_restantes, Double tarif, String intervenant, String photo) {
         this.type = type;
         this.titre = titre;
         this.description = description;
@@ -44,7 +48,6 @@ public class Evenement {
         this.tarif = tarif;
         this.intervenant = intervenant;
         this.photo = photo;
-
     }
 
     public Long getId() {
@@ -95,19 +98,19 @@ public class Evenement {
         this.dateFin = dateFin;
     }
 
-    public int getPlaces_totales() {
+    public Integer getPlaces_totales() {
         return places_totales;
     }
 
-    public void setPlaces_totales(int places_totales) {
+    public void setPlaces_totales(Integer places_totales) {
         this.places_totales = places_totales;
     }
 
-    public int getPlaces_restantes() {
+    public Integer getPlaces_restantes() {
         return places_restantes;
     }
 
-    public void setPlaces_restantes(int places_restantes) {
+    public void setPlaces_restantes(Integer places_restantes) {
         this.places_restantes = places_restantes;
     }
 
