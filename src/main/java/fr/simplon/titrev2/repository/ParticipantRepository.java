@@ -10,8 +10,9 @@ import java.util.List;
 public interface ParticipantRepository extends JpaRepository<Participant, Long>  {
     List<Participant> findByUsername(String username);
 
-
     @Query("SELECT p.evenement FROM Participant p WHERE p.username = :username")
     List<Evenement> findEventIdsByUsername();
+
+    List<Participant> findByEvenement(Evenement evenement);
 
 }

@@ -68,10 +68,18 @@ public class ParticipantServiceController {
 
 
 
-    @GetMapping(path = "/rest/particip/{username}")
+    @GetMapping(path = "/rest/participant/{username}")
     public List<Participant> afficherparticipantparusername(@PathVariable String username) {
         return repo.findByUsername(username);
     }
+
+
+
+    @GetMapping(path = "/rest/inscrits/{evenement}")
+    public List<Participant> afficherparticipantparEvenement(@PathVariable Evenement evenement) {
+        return repo.findByEvenement(evenement);
+    }
+
 
 
 }

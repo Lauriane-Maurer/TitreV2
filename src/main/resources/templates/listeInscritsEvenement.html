@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Liste des inscrits à l'évenement</title>
+    </head>
+
+    <body>
+    <header>Liste des participants à l'évènement</header>
+    <main>
+        <div class="table-container">
+            <table class="tableau">
+                <thead>
+                <tr>
+                    <th class="en-tete-tableau sortable">Nom</th>
+                    <th class="en-tete-tableau">Prénom</th>
+                    <th class="en-tete-tableau">Email</th>
+                    <th class="en-tete-tableau">Code Postal</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="participant : ${participants}">
+                    <td class="cellule" th:text="${participant.nom}"></td>
+                    <td class="cellule" th:text="${participant.prenom}"></td>
+                    <td class="cellule" th:text="${participant.email}"></td>
+                    <td class="cellule" th:number="${participant.code_postal}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    </body>
+</html>
