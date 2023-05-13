@@ -52,4 +52,12 @@ public class ParticipantClientController {
         return "listeInscritsEvenement";
     }
 
+    @GetMapping ("participants/delete/{id}")
+    public String delParticipant(Model model, @PathVariable Long id){
+        this.restTemplate = new RestTemplate();
+        String url="http://localhost:8081/rest/participants/{id}";
+        restTemplate.delete(url, id);
+        return "redirect:/";
+    }
+
 }

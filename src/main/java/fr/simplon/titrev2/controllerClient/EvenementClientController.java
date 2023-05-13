@@ -136,7 +136,6 @@ public class EvenementClientController {
     }
 
 
-
     @GetMapping ("evenements/delete/{id}")
     public String delEvent(Model model, @PathVariable Long id){
         this.restTemplate = new RestTemplate();

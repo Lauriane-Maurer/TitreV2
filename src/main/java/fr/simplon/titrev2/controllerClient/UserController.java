@@ -254,7 +254,7 @@ public class UserController {
     @GetMapping("/admin/gestionnaireAdmin")
     public String afficherPageGestionnaireAdmin(Model model)
     {
-        return "gestionnaireAdmin";
+        return "pageAdmin";
     }
 
 

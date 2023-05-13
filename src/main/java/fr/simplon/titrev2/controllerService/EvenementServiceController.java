@@ -1,6 +1,7 @@
 package fr.simplon.titrev2.controllerService;
 
 import fr.simplon.titrev2.model.Evenement;
+import fr.simplon.titrev2.model.Participant;
 import fr.simplon.titrev2.repository.EvenementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
