@@ -32,6 +32,8 @@ public class Evenement {
     private String intervenant;
     private String photo;
 
+    @OneToMany(mappedBy = "evenement", cascade = CascadeType.REMOVE)
+    private List<Participant> participants;
 
 
     public Evenement() {

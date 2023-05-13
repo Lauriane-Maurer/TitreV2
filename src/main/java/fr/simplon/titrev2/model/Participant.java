@@ -16,7 +16,7 @@ public class Participant {
     private int code_postal;
     private String username;
 
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne
     @JoinColumn(name = "id_evenement", referencedColumnName = "id", nullable = false)
     private Evenement evenement;
 
